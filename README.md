@@ -9,6 +9,7 @@ For this all to work you will need Node.js (ChatGPT helps so much when it comes 
 
 # Other Stuff You Need to Know
 The linker.js file and the links.txt must be in the same folder, so when you set up code studio and set the folder it will use just make sure the two are in that same folder.
+YOU WILL NEED TO CREATE THE LINKS TEXT DOCUMENT NAME IT 'links.txt'
 
 # Side Note
 This is my first time on GitHub so if I forgot anything just yell at me in the comments, I didn't know how to word the how to install so I just told my process to ChatGPT and let it explain it (don't worry I checked over it to make sure it all works, its just awkward on how its worded but it still makes sense)
