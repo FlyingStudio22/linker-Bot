@@ -1,0 +1,47 @@
+const fs = require('fs');
+const axios = require('axios');
+const { promisify } = require('util');
+const writeFileAsync = promisify(fs.writeFile);
+
+// Read the list of links from a text file
+async function readLinksFromFile(filePath) {
+  try {
+    const fileData = await fs.promises.readFile(filePath, 'utf8');
+    const links = fileData.split('\n').map(link => link.trim());
+    return links.filter(link => link !== '');
+  } catch (error) {
+    throw new Error('Error reading file:', error);
+  }
+}
+
+// Download the video from a given link
+async function downloadVideo(link) {
+  try {
+    const response = await axios.get(link, { responseType: 'arraybuffer' });
+    const videoData = response.data;
+    const fileName = link.substring(link.lastIndexOf('/') + 1);
+    await writeFileAsync(fileName, videoData);
+    console.log(`Downloaded: ${fileName}`);
+  } catch (error) {
+    console.log(`Error downloading video from ${link}:`, error);
+  }
+}
+
+// Process the list of links and download videos
+async function processLinks(linksFilePath) {
+  try {
+    const links = await readLinksFromFile(linksFilePath);
+    for (const link of links) {
+      await downloadVideo(link);
+    }
+    console.log('All videos downloaded!');
+  } catch (error) {
+    console.log('Error processing links:', error);
+  }
+}
+
+// Specify the path to the file containing the list of links
+const linksFilePath = 'links.txt';
+
+// Start processing the links
+processLinks(linksFilePath);
