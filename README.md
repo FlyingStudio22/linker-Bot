@@ -1,6 +1,9 @@
 # linker-Bot
 Linker Bot is a bot (made with Javascript) that allows the user to paste multiple links into a text document and then download them.
 
+# Version
+Linker Bot is in V2, I will probably add more updates. It is currently a .txt document as you need to paste it into Visual Studio and turn it into a .js file.
+
 # What You Need
 For this all to work you will need Node.js (ChatGPT helps so much when it comes to troubleshooting, trust me) and Visual Studio 
 
