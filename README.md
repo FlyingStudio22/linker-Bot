@@ -1,6 +1,9 @@
 # linker-Bot
 Linker Bot is a bot (made with Javascript) that allows the user to paste multiple links into a text document and then download them.
 
+# Authors Note
+I apologize but the linker.js file's path is probably currently "D:/Pokemon Indigo League/" as thats what I had it set as, just change it to what you need the directory to be
+
 # Version
 Linker Bot is in V2, I will probably add more updates. It is currently a .txt document as you need to paste it into Visual Studio and turn it into a .js file.
 
