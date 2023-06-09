@@ -10,7 +10,7 @@ async function readLinksFromFile(filePath) {
     const links = fileData.split('\n').map(link => link.trim());
     return links.filter(link => link !== '');
   } catch (error) {
-    throw new Error('Error reading file:', error);
+    throw new Error('Error reading file: ' + error);
   }
 }
 
@@ -20,7 +20,7 @@ async function downloadVideo(link, savePath) {
     const response = await axios.get(link, { responseType: 'arraybuffer' });
     const videoData = response.data;
     const fileName = link.substring(link.lastIndexOf('/') + 1);
-    const saveFilePath = savePath + fileName;
+    const saveFilePath = savePath + '/' + fileName;
     await writeFileAsync(saveFilePath, videoData);
     console.log(`Downloaded: ${fileName}`);
   } catch (error) {
@@ -52,3 +52,4 @@ const usbDrivePath = '--path here';--path here delete this text after the ";"
 
 // Start processing the links and save videos to the USB drive
 processLinks(linksFilePath, usbDrivePath);
+
